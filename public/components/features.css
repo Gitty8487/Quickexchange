@@ -1,0 +1,144 @@
+/* --- FEATURES SECTION --- */
+.features-section {
+    padding: 60px 15px;
+    width: 100%;
+    background: transparent;
+    margin: 0; /* Ensures it stays pinned to the left */
+    /* THIS PREVENTS THE SCROLL SHAKE */
+    overflow: hidden; 
+    position: relative;
+}
+
+/* 1. HEADERS - Now with Branded Gradient */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    
+    
+    /* Neon Blue to Purple Gradient */
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block !important;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.5;
+    display: block !important;
+}
+
+/* 2. THE GRID - Hard Left Alignment */
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-left: 0; 
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start; 
+    gap: 15px; 
+    width: 100%;
+}
+
+/* 3. ICON BOX - Fixed Square */
+.feature-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+}
+
+/* 4. TEXT CONTENT - Left Aligned */
+.feature-text {
+    flex: 1; 
+    text-align: left;
+}
+
+.feature-text h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.feature-text p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- FADE ANIMATION --- */
+.feature-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.feature-item.animate-in {
+    opacity: 1 !important;
+}
+
+/* GLOWS */
+.blue-glow { background: linear-gradient(135deg, #0ea5e9, #2563eb); box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
+.cyan-glow { background: linear-gradient(135deg, #06b6d4, #0891b2); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
+.purple-glow { background: linear-gradient(135deg, #a855f7, #7c3aed); box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);}
+
+
+/* --- DIAGONAL DROP ANIMATION WITH DELAY --- */
+
+/* LOGO: Starts above and to the left */
+.feature-icon-box {
+    opacity: 0;
+    transform: translate(-40px, -40px);
+    /* 0.8s duration, 0.2s delay */
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; 
+}
+
+/* TEXT: Starts above and to the right */
+.feature-text {
+    opacity: 0;
+    transform: translate(40px, -40px);
+    /* 0.8s duration, 0.2s delay */
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+
+/* TRIGGER */
+.feature-item.animate-in .feature-icon-box,
+.feature-item.animate-in .feature-text {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+/* --- FEATURES HEADER ANIMATION --- */
+
+/* Initial state for both title and subtitle */
+.section-title, .section-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Visible state */
+.section-title.animate-in, .section-subtitle.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Small delay for the subtitle so it follows the title */
+.section-subtitle.animate-in {
+    transition-delay: 0.2s;
+}
+

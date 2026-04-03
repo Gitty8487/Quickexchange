@@ -1,0 +1,134 @@
+.live-activity-card {
+    background: rgba(26, 31, 43, 0.4);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 99%;
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Scrollbar styling for the horizontal scroll */
+.table-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-main { display: flex; align-items: center; gap: 12px; }
+.header-main h2 { color: #fff; font-size: 18px; margin: 0; }
+.exchange-icon { color: #fff; font-size: 20px; }
+
+.live-tag {
+    color: #10b981;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0.3; } 
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+    color: #5b6b80;
+    font-size: 11px;
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Aligning Data to match the Headers */
+#transactionBody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+td {
+    padding: 16px 0;
+    color: #cbd5e1;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+/* COLUMN ALIGNMENT LOCK */
+/* Sent, Received, and Status columns: Center aligned */
+th:nth-child(2), td:nth-child(2),
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4) {
+    text-align: center;
+}
+
+/* Name stays left, Time stays right */
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+th:last-child, td:last-child { text-align: right; }
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.first-name { color: #64748b; font-weight: 500; font-size: 14px; }
+.last-name { color: #64748b; font-size: 14px; font-weight: 500;}
+
+.status-pill {
+    display: inline-block; /* Essential for centering within the cell */
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 80px; 
+}
+
+.completed { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+.pending { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+
+.time-txt { color: #818cf8; font-size: 11px; }
+
+@keyframes smoothSlideIn {
+    0% {
+        transform: translateX(-100%) translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 2. Target only the row you labeled as 'new-row' in your JS */
+.new-row {
+    animation: smoothSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. Make the existing rows transition smoothly when the list refreshes */
+#transactionBody tr {
+    transition: transform 0.5s ease-in-out;
+}

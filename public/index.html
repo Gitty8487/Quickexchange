@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickExchange Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components/features.css">
+    <link rel="stylesheet" href="components/stats.css">
+<link rel="stylesheet" href="/components/liveChart.css">
+
+
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <span class="logo">QUICKEXCHANGE</span>
+                <span class="badge-pro">PRO</span>
+            </div>
+            <button class="hamburger" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <nav class="nav-drawer" id="nav-drawer">
+    <div class="nav-content">
+        <div class="nav-links">
+            <a href="#" class="nav-item"><img src="assets/Exchange.png" class="nav-icon"> Exchange</a>
+            <a href="#" class="nav-item"><img src="assets/Deposit.png" class="nav-icon"> Deposit</a>
+            <a href="#" class="nav-item"><img src="assets/Rates.png" class="nav-icon"> Rates</a>
+            <a href="#" class="nav-item"><img src="assets/Reviews.png" class="nav-icon"> Reviews</a>
+            <a href="#" class="nav-item"><img src="assets/News.png" class="nav-icon"> News</a>
+            <a href="#" class="nav-item"><img src="assets/Contact.png" class="nav-icon"> Contact</a>
+        </div>
+
+        <div class="nav-auth">
+            <a href="#" class="btn-outline">Login</a>
+            <a href="#" class="btn-filled">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+    </header>
+
+    <main class="hero">
+        <h1>Welcome to <br><span>QuickExchange</span></h1>
+
+        <div class="main-card">
+            <div class="inner-box">
+                <div class="box-header">
+                    <label>You Send</label>
+                    <span class="tag from">From</span>
+                </div>
+                <div class="input-grid">
+                    <input type="number" id="send-val" placeholder="2,000">
+                    <div class="currency-side">
+                        <span class="curr-text">UPI</span>
+                        <div class="icon-circle">
+                            <img src="assets/UPI.png" width="40" height="40" style="border-radius:80%">
+                        </div>
+                    </div>
+                </div>
+                <div class="limit-labels">
+                    <span id="min-send-display">Min: 100₹ UPI</span>
+                    <span id="max-send-display">Max: 25000₹ UPI</span>
+                </div>
+            </div>
+
+            <div class="rate-pill" id="rate-display">1 USDT = 90 INR</div>
+
+            <div class="inner-box">
+                <div class="box-header">
+                    <label>You Receive</label>
+                    <span class="tag to">To</span>
+                </div>
+                <div class="input-grid">
+                    <input type="number" id="receive-val" readonly placeholder="22.22">
+                    <div class="currency-side dropdown-trigger" id="drop-trigger">
+                        <img src="assets/USDT (TRC20).png" id="current-icon" width="35" height="35">
+                        <span id="selected-text">USDT (TRC20)</span>
+                        <span class="arrow">▼</span>
+                        
+                        <div class="floating-menu" id="menu-list">
+                            <div class="menu-item" data-val="USDT_TRC20" data-img="assets/USDT (TRC20).png">
+                                <img src="assets/USDT (TRC20).png" width="35"> USDT (TRC20)
+                            </div>
+                            <div class="menu-item" data-val="USDT_BEP20" data-img="assets/USDT (BEP20).png">
+                                <img src="assets/USDT (BEP20).png" width="35"> USDT (BEP20)
+                            </div>
+                            <div class="menu-item" data-val="USDT_ERC20" data-img="assets/USDT (ERC20).png">
+                                <img src="assets/USDT (ERC20).png" width="35"> USDT (ERC20)
+                            </div>
+                            <div class="menu-item" data-val="BTC" data-img="assets/BTC.png">
+                                <img src="assets/BTC.png" width="35"> BTC
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="limit-labels">
+                    <span id="min-receive-display">Min: 1.11 USDT</span>
+                    <span id="max-receive-display">Max: 277.77 USDT</span>
+                </div>
+            </div>
+
+            <button id="exchange-btn" class="btn-main">→ Start Exchange</button>
+        </div>
+
+        <div id="features-placeholder"></div>
+        <div id="stats-placeholder"></div>
+
+<div id="live-chart-placeholder"></div>
+
+<script>
+    // This tiny script pulls the HTML from your components folder into the main page
+    fetch('/components/liveChart.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('live-chart-placeholder').innerHTML = data;
+
+if (window.initLiveChart) { 
+            window.initLiveChart(); 
+        }
+        });
+</script>
+
+    </main>
+
+    <script src="script.js"></script>
+    
+    <script src="/components/liveChart.js"></script>
+</body>
+

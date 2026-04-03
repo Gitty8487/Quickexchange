@@ -1,0 +1,97 @@
+.stats-container {
+    /* Made it wider by reducing side margins */
+    margin: 2px 8px 10px 8px; 
+    padding: 25px 12px;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat-card {
+    padding: 20px 5px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.stat-card:first-child {
+    grid-column: span 2;
+}
+
+.number-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00d2ff, #9d50bb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Style for +, /7, and % */
+.symbol {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00d2ff;
+    opacity: 0.9;
+}
+
+.stat-label {
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* --- ADD ONLY THIS TO THE BOTTOM OF YOUR FILE --- */
+
+/* 1. Set the initial state for the card to be hidden */
+.stat-card {
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+}
+
+/* 2. This class will be added by JavaScript when you scroll */
+.stat-card.animate-in {
+    opacity: 1 !important;
+}
+
+/* 3. Ensure the numbers and symbols don't jump around */
+.number-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+/* --- CLEAN PROFESSIONAL POP --- */
+.stat-card {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    /* Standard "Decelerate" curve for premium UI */
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+/* The "Active" state triggered by JS */
+.stat-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
