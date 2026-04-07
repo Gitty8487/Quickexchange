@@ -48,6 +48,11 @@
         <h1>Welcome to <br><span>QuickExchange</span></h1>
 
         <div class="main-card">
+           <div class="mode-toggle">
+    <button class="toggle-btn active" id="buy-btn" onclick="setExchangeMode('buy')">Buy</button>
+    <button class="toggle-btn" id="sell-btn" onclick="loadSellMode()">Sell</button>
+</div>
+
             <div class="inner-box">
                 <div class="box-header">
                     <label>You Send</label>
@@ -68,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="rate-pill" id="rate-display">1 USDT = 90 INR</div>
+            <div class="rate-pill" id="rate-display">Fetching live price.....</div>
 
             <div class="inner-box">
                 <div class="box-header">

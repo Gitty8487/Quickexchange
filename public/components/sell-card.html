@@ -1,0 +1,63 @@
+<!-- components/sell-card.html -->
+<div class="mode-toggle">
+    <button class="toggle-btn" onclick="loadBuyMode()">Buy</button>
+    <button class="toggle-btn active">Sell</button>
+</div>
+
+<!-- TOP BOX -->
+<div class="inner-box active-neon" id="sell-crypto-box">
+    <div class="box-header">
+        <label>You Send Crypto</label>
+        <span class="tag from">From</span>
+    </div>
+    <div class="input-grid">
+        <!-- ID MUST BE send-crypto-val -->
+        <input type="number" id="send-crypto-val" placeholder="1.00">
+        <div class="currency-side dropdown-trigger" id="sell-drop-trigger">
+            <img src="assets/USDT (TRC20).png" id="sell-current-icon" width="35" height="35">
+            <span id="sell-selected-text">USDT (TRC20)</span>
+            <span class="arrow">▼</span>
+            
+            <div class="floating-menu" id="sell-menu-list">
+                <div class="menu-item" data-img="assets/USDT (TRC20).png">
+                    <img src="assets/USDT (TRC20).png" width="35"> USDT (TRC20)
+                </div>
+                <div class="menu-item" data-img="assets/USDT (BEP20).png">
+                    <img src="assets/USDT (BEP20).png" width="35"> USDT (BEP20)
+                </div>
+                <div class="menu-item" data-img="assets/USDT (ERC20).png">
+                    <img src="assets/USDT (ERC20).png" width="35"> USDT (ERC20)
+                </div>
+                <div class="menu-item" data-img="assets/BTC.png">
+                    <img src="assets/BTC.png" width="35"> BTC
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="limit-labels">
+        <span id="sell-min-label">Min: 1.11 USDT</span>
+        <span>Max: 5000 USDT</span>
+    </div>
+</div>
+
+<div class="rate-pill" id="sell-rate-display">1 USDT = 94.8 INR</div>
+
+<!-- BOTTOM BOX -->
+<div class="inner-box" id="sell-upi-box">
+    <div class="box-header">
+        <label>You Receive UPI</label>
+        <span class="tag to">To</span>
+    </div>
+    <div class="input-grid">
+        <!-- ID MUST BE receive-upi-val -->
+        <input type="number" id="receive-upi-val" readonly placeholder="94.80">
+        <div class="currency-side">
+            <span class="curr-text">UPI</span>
+            <div class="icon-circle">
+                <img src="assets/UPI.png" width="40" height="40" style="border-radius:80%">
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn-main">→ Start Exchange</button>

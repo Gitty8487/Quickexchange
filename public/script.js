@@ -168,3 +168,40 @@ async function loadStatsComponent() {
 loadStatsComponent();
 
 
+
+// --- DYNAMIC CONTENT LOADER ---
+async function loadSellMode() {
+    const mainCard = document.querySelector('.main-card');
+    
+    try {
+        // 1. Fetch the card from your components folder
+        const res = await fetch('components/sell-card.html');
+        if (!res.ok) throw new Error("File not found");
+        const html = await res.text();
+        
+        // 2. Inject HTML into the card
+        mainCard.innerHTML = html;
+
+        // 3. Re-run the Sell Logic
+        if (!document.getElementById('sell-script-js')) {
+            const script = document.createElement('script');
+            script.id = 'sell-script-js';
+            script.src = 'components/sell-script.js';
+            document.body.appendChild(script);
+        } else {
+            // If already loaded once, we just need to re-initialize the listeners
+            if (typeof initSellLogic === "function") initSellLogic();
+            if (typeof updateSellUI === "function") updateSellUI();
+        }
+    } catch (err) {
+        console.error("Swap failed:", err);
+        alert("Check if components/sell-card.html exists!");
+    }
+}
+
+function loadBuyMode() {
+    location.reload(); // Hard reset to go back to Buy
+}
+
+
+

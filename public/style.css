@@ -260,6 +260,38 @@ h1 span { background: linear-gradient(90deg, #bf5af2, #ff375f); -webkit-backgrou
 /* MAIN CARD */
 .main-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 24px; padding: 20px; max-width: 420px; margin: 0 auto; }
 
+/* --- BUY/SELL TOGGLE STYLE --- */
+.mode-toggle {
+    display: flex;
+    background: #131b39; /* Matches your input-grid background */
+    border-radius: 14px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid #1e293b;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #64748b; /* Inactive text color */
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.toggle-btn.active {
+    background: #1e293b; /* Matches your inner-box background */
+    color: #38bdf8;      /* Neon Blue */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+
 /* --- UPDATED INNER BOX (Removes old border) --- */
 .inner-box { 
     background: #1e293b; 
@@ -510,4 +542,60 @@ input { background: transparent; border: none; color: #fff; font-size: 1.4rem; f
 
 
 
+/* --- HIGH-VOLTAGE NEON TOGGLE --- */
+.mode-toggle {
+    display: flex;
+    background: rgba(13, 17, 28, 0.8); /* Dark glass base */
+    border-radius: 18px;
+    margin-bottom: 25px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: #475569; /* Dimmer inactive text for high contrast */
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- THE ELECTRIC ACTIVE STATE --- */
+.toggle-btn.active {
+    background: #1e293b; 
+    color: #00d2ff; /* Electric Cyan */
+    
+    /* Strong outside glow to match your boxes */
+    box-shadow: 
+        0 0 15px rgba(0, 210, 255, 0.4),
+        0 0 30px rgba(0, 210, 255, 0.2);
+    
+    /* Bright border effect */
+    border: 1px solid rgba(0, 210, 255, 0.6);
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.8); /* Makes text glow */
+}
+
+/* --- THE NEON GLOW BAR --- */
+.toggle-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 25%;
+    width: 50%;
+    height: 4px;
+    background: #00d2ff;
+    border-radius: 20px;
+    /* This creates the "light beam" effect on the bar */
+    box-shadow: 
+        0 0 10px #00d2ff,
+        0 0 20px #00d2ff;
+}
 
